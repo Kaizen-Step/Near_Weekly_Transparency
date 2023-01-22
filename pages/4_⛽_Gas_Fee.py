@@ -60,9 +60,10 @@ top10_DeligatorsTX = get_data('top10_DeligatorsTX')
 st.text(" \n")
 st.write("""  ## Used Gas and Gas Fee ##   """)
 st.text(" \n")
-st.write("""  ##### Gas Fees are a catch all term for the cost of making transactions on the NEAR network. These fees are paid to validators for their services to the blockchain. Without these fees, there would be no incentive for anyone to keep the network secure.
+st.write("""  Gas Fees is a term used to describe the cost of making transactions on the NEAR network. These fees are paid to validators for the network services they provide to the NEAR blockchain. Gas fees incentivize validators to secure the network. 
 
-##### Over the last week, the daily amount of gas, expressed here as PetaGas, which is the equivalent of 0.1 $NEAR, has maintained a fairly consistent value between 5,949 PetaGas and 6,743 PetaGas. To learn more about Gas on NEAR, there is an excellent explainer in the NEAR White Paper. Compared with last week, the Daily Amount of Used Gas has decreased, from highs of more than 8,000 PetaGas.
+In the last week, Used Gas on NEAR (PetaGas) was measured at a high of 7,569 on December 11th and 6,758 on the 14th. To learn more about Gas on NEAR, check out the NEAR White Paper. (Rises in gas used can be attributed to many factors, with a common one being increased user activity on the NEAR network.) 
+
 
    """)
 
@@ -90,6 +91,12 @@ fig.update_yaxes(
 fig.update_yaxes(title_text='Cumulative Fee', secondary_y=True)
 st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
 
+st.write("""  Over the last week, there has been a slight drop in the Gas Fee (in NEAR), which correlates with a drop in Used Gas. On December 11th, the Gas Fee was measured at 756, before falling to 675 on the 14th. 
+
+
+   """)
+
+
 # Weekly Gas Fees with Cumulative Value
 fig = sp.make_subplots(specs=[[{'secondary_y': True}]])
 fig.add_trace(go.Bar(x=df11["WEEK"], y=df11["TOTAL_FEES_OVER_TIME"],
@@ -101,125 +108,4 @@ fig.update_layout(
 fig.update_yaxes(
     title_text='Weekly Gas Fee', secondary_y=False)
 fig.update_yaxes(title_text='Cumulative Fee', secondary_y=True)
-st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
-
-# Daily net stake volume
-fig = px.bar(df.sort_values(["DATE_STAKE", "DAILY_NET"], ascending=[
-             True, False]), x="DATE_STAKE", y="DAILY_NET", title='Daily net stake volume'.title())
-fig.update_layout(legend_title=None, xaxis_title=None,
-                  yaxis_title="DAILY NET")
-st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
-
-# Stake volume and With cumulative stake volume
-fig = sp.make_subplots(specs=[[{'secondary_y': True}]])
-fig.add_trace(go.Bar(x=df["DATE_STAKE"], y=df["NEAR Staked"],
-                     name="NEAR Staked".title()), secondary_y=False)
-fig.add_trace(go.Line(x=df["DATE_STAKE"], y=df["TOTAL_STAKED"],
-                      name="TOTAL STAKED".title()), secondary_y=True)
-fig.update_layout(
-    title_text='Stake volume and With cumulative stake volume')
-fig.update_yaxes(
-    title_text="NEAR Staked".title(), secondary_y=False)
-fig.update_yaxes(title_text="TOTAL STAKED".title(),
-                 secondary_y=True)
-st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
-
-
-# Daily stakers vs Unstakers
-fig = sp.make_subplots(specs=[[{'secondary_y': True}]])
-fig.add_trace(go.Bar(x=df["DATE_STAKE"], y=df["Stakers"],
-                     name="Stakers".title()), secondary_y=False)
-fig.add_trace(go.Bar(x=df["DATE_STAKE"], y=df["Unstakers"],
-                     name="Unstakers".title()), secondary_y=False)
-fig.update_layout(
-    title_text='Daily stakers vs Unstakers')
-fig.update_yaxes(
-    title_text="Stakers".title(), secondary_y=False)
-st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
-
-
-# Near stake vs Unstake
-fig = sp.make_subplots(specs=[[{'secondary_y': True}]])
-fig.add_trace(go.Bar(x=df["DATE_STAKE"], y=df["NEAR Staked"],
-                     name="NEAR Staked".title()), secondary_y=False)
-fig.add_trace(go.Bar(x=df["DATE_STAKE"], y=df["NEAR Unstaked"],
-                     name="NEAR Unstaked".title()), secondary_y=False)
-fig.update_layout(
-    title_text='Near stake vs Unstake')
-fig.update_yaxes(
-    title_text="Stakers".title(), secondary_y=False)
-st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
-
-# Stake vs Unstake Volume per User
-fig = sp.make_subplots(specs=[[{'secondary_y': True}]])
-fig.add_trace(go.Bar(x=df["DATE_STAKE"], y=df["Stake Volume per User"],
-                     name="Stake Volume per User".title()), secondary_y=False)
-fig.add_trace(go.Bar(x=df["DATE_STAKE"], y=df["Unstake Volume per User"],
-                     name="Unstake Volume per User".title()), secondary_y=False)
-fig.update_layout(
-    title_text='Stake vs Unstake Volume per User')
-fig.update_yaxes(
-    title_text="Stake Volume per User".title(), secondary_y=False)
-st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
-
-# Stake vs Unstake Transactions per User
-fig = sp.make_subplots(specs=[[{'secondary_y': True}]])
-fig.add_trace(go.Bar(x=df["DATE_STAKE"], y=df["Stake Transactions per User"],
-                     name="Stake Transactions per User".title()), secondary_y=False)
-fig.add_trace(go.Bar(x=df["DATE_STAKE"], y=df["Unstake Transactions per User"],
-                     name="Unstake Transactions per User".title()), secondary_y=False)
-fig.update_layout(
-    title_text='Stake vs Unstake Transactions per User')
-fig.update_yaxes(
-    title_text="Stake Transactions per User".title(), secondary_y=False)
-st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
-
-st.text(" \n")
-st.text(" \n")
-st.text(" \n")
-st.subheader('Pool & Validators')
-
-# Weekly Top Pools Based on Volume
-fig = px.bar(df5.sort_values(["DATE", "Volume"], ascending=[
-    True, False]), x="DATE", y="Volume", color="Pool name", title='Weekly Top Pools Based on Volume')
-fig.update_layout(legend_title=None, xaxis_title=None,
-                  yaxis_title="Volume")
-st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
-
-# Weekly Top Pools Based on Users
-fig = px.bar(df6.sort_values(["DATE", "Unique wallet"], ascending=[
-    True, False]), x="DATE", y="Unique wallet", color="Pool name", title='Weekly Top Pools Based on Users')
-fig.update_layout(legend_title=None, xaxis_title=None,
-                  yaxis_title="Unique wallet")
-st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
-
-# Weekly Top Pools Based on Transactions
-fig = px.bar(df7.sort_values(["DATE", "tx count"], ascending=[
-    True, False]), x="DATE", y="tx count", color="Pool name", title='Weekly Top Pools Based on Transactions')
-fig.update_layout(legend_title=None, xaxis_title=None,
-                  yaxis_title="tx count")
-st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
-
-# Top 10 Validator
-fig = px.bar(df2, x="VALODATOR", y="AMOUNT",
-             color="VALODATOR", title='Top 10 Validator')
-fig.update_layout(showlegend=True, xaxis_title=None,
-                  yaxis_title='Validator')
-st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
-
-
-# Top 10 Delegator Based on Volume
-fig = sp.make_subplots(specs=[[{'secondary_y': False}]])
-fig.add_trace(go.Bar(x=df8["STAKERS"], y=df8["AMOUNT"],
-                     name='Volume'), secondary_y=False)
-fig.update_layout(title_text='Top 10 Delegator Based on Volume'.title())
-fig.update_yaxes(title_text='Volume', secondary_y=False)
-st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
-
-# Top 10 Delegator Based on Transactions
-fig = sp.make_subplots(specs=[[{'secondary_y': False}]])
-fig.add_trace(go.Bar(x=df9["STAKERS"], y=df9["STAKES"],
-                     name="STAKES"), secondary_y=False)
-fig.update_layout(title_text='Top 10 Delegator Based on Transactions'.title())
-fig.update_yaxes(title_text="STAKES", secondary_y=False)
 st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)

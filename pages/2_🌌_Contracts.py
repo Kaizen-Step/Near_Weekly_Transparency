@@ -58,9 +58,9 @@ NearWeekly_TopContracts_users = get_data('NearWeekly_TopContracts_users')
 st.text(" \n")
 st.write("""  ## New Contracts and Active Contracts ##   """)
 st.text(" \n")
-st.write("""  ##### Contracts on NEAR are simply programs stored on a blockchain that run when predetermined conditions are met. The Daily Number of New Contracts is a valuable metric for understanding the health and growth of an ecosystem.
+st.write("""   Contracts on NEAR are simply programs stored on a blockchain that run when predetermined conditions are met. The Daily Number of New Contracts is a valuable metric for understanding the health and growth of an ecosystem.
 
-##### The more active contracts there are, the more projects are actively engaging with the NEAR protocol. The chart below shows a cyclical rhythm to new contracts, with rises and falls. Over the last seven days, the number of new contracts reached a daily high of 54 on December 4, and a weekly low of 27 on December 6. This range is broader compared to the week before, with last week’s highest number of 44 on November 30, to a low of 12 new contracts on November 27.   """)
+ The more active contracts there are, the more projects are actively engaging with the NEAR protocol. The chart below shows a cyclical rhythm to new contracts, with rises and falls. Over the last 30 days(16 December 2022-16 January 2023), the number of new contracts reached a daily high of 16 on December 20, and a low of 1 on January Second. This range is narrower compared to the first two weeks of December, with the highest number of 54 on December 4, to a low of 27 new contracts on December 6.  """)
 
 df11 = NearWeeklyTransparency_Daily_Contract
 df12 = NearWeeklyTransparency_Weekly_Contract
@@ -74,18 +74,6 @@ df5 = NearTop10Contracts_Transactions
 df6 = NearTop_newcontracts_fee
 df7 = NearWeekly_TopContracts_users
 
-# Daily Active Contracts + Cum Number
-fig = sp.make_subplots(specs=[[{'secondary_y': True}]])
-fig.add_trace(go.Bar(x=df11["DATE"], y=df11["ACTIVE_CONTRACTS"],
-                     name='Number of Active Contracs'), secondary_y=False)
-fig.add_trace(go.Line(x=df11["DATE"], y=df11["CUM_CONTRACTS"],
-                      name='CUMULATIVE ACTIVE Contracts'.title()), secondary_y=True)
-fig.update_layout(
-    title_text='Daily Active Contracts With Cumulative Value')
-fig.update_yaxes(
-    title_text='Number of ACTIVE Contracts', secondary_y=False)
-fig.update_yaxes(title_text='CUMULATIVE Active Contracts', secondary_y=True)
-st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
 
 # Daily New Contracts + Cumulative Number
 fig = sp.make_subplots(specs=[[{'secondary_y': True}]])
@@ -98,19 +86,6 @@ fig.update_layout(
 fig.update_yaxes(
     title_text='Number of NEW Contracts', secondary_y=False)
 fig.update_yaxes(title_text='CUMULATIVE Value', secondary_y=True)
-st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
-
-# Weekly Active Contracts + Cumulative Number
-fig = sp.make_subplots(specs=[[{'secondary_y': True}]])
-fig.add_trace(go.Bar(x=df12["DATE"], y=df12["ACTIVE_CONTRACTS"],
-                     name='Number of Active Contracts'), secondary_y=False)
-fig.add_trace(go.Line(x=df12["DATE"], y=df12["CUM_CONTRACTS"],
-                      name='CUMULATIVE ACTIVE Contracts'.title()), secondary_y=True)
-fig.update_layout(
-    title_text='Weekly Active Contracts With Cumulative Value')
-fig.update_yaxes(
-    title_text='Number of ACTIVE Contracts', secondary_y=False)
-fig.update_yaxes(title_text='CUMULATIVE Active Contracts', secondary_y=True)
 st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
 
 # Weekly New Contracts + Cumulative Number
@@ -126,6 +101,43 @@ fig.update_yaxes(
 fig.update_yaxes(title_text='CUMULATIVE Value', secondary_y=True)
 st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
 
+st.text(" \n")
+st.write("""  Smart contracts created on NEAR are programs stored on a blockchain that run when predetermined conditions are met. As you can see in the above chart during this period, the Weekly number of New Contract has been trending downward, however, since new year, the upward trend has been started. In this period A low of 23 New weekly Contracts was measured on December 25th,while it had been rosen to 47 on Jan 9 Week .    """)
+
+
+# Daily Active Contracts + Cum Number
+fig = sp.make_subplots(specs=[[{'secondary_y': True}]])
+fig.add_trace(go.Bar(x=df11["DATE"], y=df11["ACTIVE_CONTRACTS"],
+                     name='Number of Active Contracs'), secondary_y=False)
+fig.add_trace(go.Line(x=df11["DATE"], y=df11["CUM_CONTRACTS"],
+                      name='CUMULATIVE ACTIVE Contracts'.title()), secondary_y=True)
+fig.update_layout(
+    title_text='Daily Active Contracts With Cumulative Value')
+fig.update_yaxes(
+    title_text='Number of ACTIVE Contracts', secondary_y=False)
+fig.update_yaxes(title_text='CUMULATIVE Active Contracts', secondary_y=True)
+st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
+
+
+# Weekly Active Contracts + Cumulative Number
+fig = sp.make_subplots(specs=[[{'secondary_y': True}]])
+fig.add_trace(go.Bar(x=df12["DATE"], y=df12["ACTIVE_CONTRACTS"],
+                     name='Number of Active Contracts'), secondary_y=False)
+fig.add_trace(go.Line(x=df12["DATE"], y=df12["CUM_CONTRACTS"],
+                      name='CUMULATIVE ACTIVE Contracts'.title()), secondary_y=True)
+fig.update_layout(
+    title_text='Weekly Active Contracts With Cumulative Value')
+fig.update_yaxes(
+    title_text='Number of ACTIVE Contracts', secondary_y=False)
+fig.update_yaxes(title_text='CUMULATIVE Active Contracts', secondary_y=True)
+st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
+
+
+st.text(" \n")
+st.text(" \n")
+st.text(" \n")
+st.subheader('Overall Contract Metrics')
+
 # Top new contracts Based on average transactions fee
 fig = px.area(df6, x="DATE", y="AVG_TX_FEE", color="TX_RECEIVER",
               title='Top new contracts Based on average transactions fee')
@@ -139,12 +151,6 @@ fig = px.bar(df4, x="TX_RECEIVER", y="TOTAL_TX_FEE", color="TX_RECEIVER",
 fig.update_layout(legend_title=None, xaxis_title=None,
                   yaxis_title="TOTAL TX FEE".title())
 st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
-
-st.text(" \n")
-st.text(" \n")
-st.text(" \n")
-st.subheader('Overall Contract Metrics')
-
 
 # Weekly Top Contracts Based on Transactions
 fig = px.bar(df3.sort_values(["DATE", "COUNT"], ascending=[
