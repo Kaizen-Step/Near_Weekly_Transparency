@@ -40,7 +40,7 @@ Near_TX_Interval = get_data('Near_TX_Interval')
 st.text(" \n")
 st.write("""  ## Daily Transactions ##   """)
 st.text(" \n")
-st.write("""  ##### The daily number of transactions is a record of how many times the blockchain logged a transaction. This week’s data represents a healthy increase in the number of transactions. From lows of 328,000 transactions on December 3, to a weekly high of 388,000 transactions per day on December 6. Looking more broadly, NEAR transaction activity has been trending downwards in Q4, reflecting other on chain data presented   """)
+st.write("""  The daily number of transactions is a record of how many times the blockchain logged a transaction. This week’s data represents a healthy increase in the number of transactions. From lows of 254,700 transactions on January 1st, to a weekly high of 635,095 transactions per day on January 12. Looking more broadly, NEAR transaction activity has been trending upward in this period.   """)
 
 df11 = NearWeeklyTransparency_Transactions
 df2 = NEAR_TX3
@@ -59,6 +59,10 @@ fig.update_yaxes(
     title_text='Daily Transaction', secondary_y=False)
 fig.update_yaxes(title_text='CUMULATIVE Transaction', secondary_y=True)
 st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
+
+
+st.write("""  On weekly charts also there is a significant rise in weekly transactions during December 16, 2022 to Januaru 16, 2023 and almost tripled in this period.  """)
+
 
 # Weekly Transaction with Cumulative Value
 fig = sp.make_subplots(specs=[[{'secondary_y': True}]])

@@ -88,6 +88,10 @@ fig.update_yaxes(
 fig.update_yaxes(title_text='CUMULATIVE Value', secondary_y=True)
 st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
 
+st.text(" \n")
+st.write(""" Smart contracts created on NEAR are programs stored on a blockchain that run when predetermined conditions are met. As you can see in the above chart, during this period, the Weekly number of New Contracts has been trending downward; however, since the new year, the upward trend has started. In this period, A low of 23 New weekly Contracts was measured on December 25th, while it had been rosen to 47 on Week started from jan 9.   
+ """)
+
 # Weekly New Contracts + Cumulative Number
 fig = sp.make_subplots(specs=[[{'secondary_y': True}]])
 fig.add_trace(go.Bar(x=df12["DATE"], y=df12["NEW_CONTRACTS"],
@@ -101,8 +105,13 @@ fig.update_yaxes(
 fig.update_yaxes(title_text='CUMULATIVE Value', secondary_y=True)
 st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
 
+
 st.text(" \n")
-st.write("""  Smart contracts created on NEAR are programs stored on a blockchain that run when predetermined conditions are met. As you can see in the above chart during this period, the Weekly number of New Contract has been trending downward, however, since new year, the upward trend has been started. In this period A low of 23 New weekly Contracts was measured on December 25th,while it had been rosen to 47 on Jan 9 Week .    """)
+st.write("""  ## Active Contracts ##   """)
+st.text(" \n")
+st.write("""   Active contracts is a measure of contracts that execute in a 24 hour period. This number has remained realitively consistent throughout the last 4 week with an average of 692 active contracts on the NEAR network. In this period, Firs day of 2023 year figure is the lowest Number with 357 Active contract, while that for January 9 is highest number with 744.
+
+  """)
 
 
 # Daily Active Contracts + Cum Number
@@ -118,7 +127,9 @@ fig.update_yaxes(
 fig.update_yaxes(title_text='CUMULATIVE Active Contracts', secondary_y=True)
 st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
 
-
+st.text(" \n")
+st.write("""   In Weekly chart Active contracts flactuated over this period and remain relatively unchanged.
+  """)
 # Weekly Active Contracts + Cumulative Number
 fig = sp.make_subplots(specs=[[{'secondary_y': True}]])
 fig.add_trace(go.Bar(x=df12["DATE"], y=df12["ACTIVE_CONTRACTS"],

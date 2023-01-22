@@ -104,18 +104,18 @@ with c3:
     # value=df16["TOTAL_FEES"].map('{:,.0f}'.format).values[0])
 
 
-st.subheader('Quarter Change')
+st.subheader('Weekly Change')
 Co1, Co2 = st.columns(2)
 with Co1:
-    st.metric(label='**Current Quarter Success Rate**',
+    st.metric(label='**Current Week Success Rate**',
               value=str(df2["Today Success Rate"].map('{:,.0f}'.format).values[0]))
-    st.metric(label='**Current Quarter TPS**',
+    st.metric(label='**Current Week TPS**',
               value=df2["24 Hours TPS"].map('{:,.0f}'.format).values[0])
 
 with Co2:
-    st.metric(label='**Quarter change [percent]**',
+    st.metric(label='**Weekly change [percent]**',
               value=str(df2["change (%) Success Rate"].map('{:,.2f}'.format).values[0]))
-    st.metric(label='**Quarter change [Percent]**',
+    st.metric(label='**Weekly change [Percent]**',
               value=df2["change (%) TPS"].map('{:,.2f}'.format).values[0])
 
 

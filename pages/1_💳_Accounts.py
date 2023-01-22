@@ -89,6 +89,11 @@ fig.update_yaxes(
 fig.update_yaxes(title_text='CUMULATIVE Value', secondary_y=True)
 st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
 
+
+st.text(" \n")
+st.write("""  ## Active Accounts ##   """)
+st.text(" \n")
+
 st.write("""  If a NEAR wallet makes an on-chain transaction, it’s counted in the Daily Number of Active Accounts metric. This past week, Daily Active Accounts ranged between 352,147 on January 9th to 635,095 on the 12th of the month.Over the last week, despite an enormouse rise, after hiting a high of 635,095 Active Accounts trending down to about 399,501 on January 15. 
 
 
@@ -109,6 +114,14 @@ fig.update_yaxes(
 fig.update_yaxes(title_text='CUMULATIVE Active Accounts', secondary_y=True)
 st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
 
+st.write("""  As you can see in the below weekly chart the Monthly downtrend was breaked and new uprising trend was started by the new year.
+The Number of Weekly Active Accounts rise more than 70 percent in one week from 2.15m in first week of 2023 to 3.53m in the second week of Jan 2023.
+
+
+
+    """)
+
+
 # Weekly Active Wallets + Cumulative Number
 fig = sp.make_subplots(specs=[[{'secondary_y': True}]])
 fig.add_trace(go.Bar(x=df12["WEEK"], y=df12["ACTIVE_WALLETS"],
@@ -121,11 +134,3 @@ fig.update_yaxes(
     title_text='Number of ACTIVE Accounts', secondary_y=False)
 fig.update_yaxes(title_text='CUMULATIVE Active Accounts', secondary_y=True)
 st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
-
-
-st.write("""  As you can see in the above weekly chart the Monthly downtrend was breaked and new uprising trend was started by the new year.
-The Number of Weekly Active Accounts rise more than 70 percent in one week from 2.15m in first week of 2023 to 3.53m in the second week of Jan 2023.
-
-
-
-    """)

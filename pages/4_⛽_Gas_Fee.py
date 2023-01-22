@@ -62,7 +62,7 @@ st.write("""  ## Used Gas and Gas Fee ##   """)
 st.text(" \n")
 st.write("""  Gas Fees is a term used to describe the cost of making transactions on the NEAR network. These fees are paid to validators for the network services they provide to the NEAR blockchain. Gas fees incentivize validators to secure the network. 
 
-In the last week, Used Gas on NEAR (PetaGas) was measured at a high of 7,569 on December 11th and 6,758 on the 14th. To learn more about Gas on NEAR, check out the NEAR White Paper. (Rises in gas used can be attributed to many factors, with a common one being increased user activity on the NEAR network.) 
+Over the last 4 weeks, Gas Fee on NEAR was measured at a high of 789.78 on January 12th and low of 474.48 on January 7, ending the this period at 578. 
 
 
    """)
@@ -91,7 +91,7 @@ fig.update_yaxes(
 fig.update_yaxes(title_text='Cumulative Fee', secondary_y=True)
 st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
 
-st.write("""  Over the last week, there has been a slight drop in the Gas Fee (in NEAR), which correlates with a drop in Used Gas. On December 11th, the Gas Fee was measured at 756, before falling to 675 on the 14th. 
+st.write("""  During this period, there has been a considerable rise in the weekly Gas Fee (in NEAR). It exprienced 150 percent growth compared with first week of this period with 2000 to almost 5000 in the last week.   
 
 
    """)
