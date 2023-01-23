@@ -18,17 +18,33 @@ with open('style.css')as f:
 
 
 st.text(" \n")
-st.write("""  ## Former Weekly Reports ##   """)
+st.write("""  ## Last Weekly Reports ##   """)
 st.text(" \n")
-st.write("""  ##### Contracts on NEAR are simply programs stored on a blockchain that run when predetermined conditions are met. The Daily Number of New Contracts is a valuable metric for understanding the health and growth of an ecosystem.
-
-##### The more active contracts there are, the more projects are actively engaging with the NEAR protocol. The chart below shows a cyclical rhythm to new contracts, with rises and falls. Over the last seven days, the number of new contracts reached a daily high of 54 on December 4, and a weekly low of 27 on December 6. This range is broader compared to the week before, with last week’s highest number of 44 on November 30, to a low of 12 new contracts on November 27.   """)
+st.write(""" In this section we reviewed last weekly transparemcy report and tried to share some opinion that might help to improve the overall report.   """)
 
 
-st.image(Image.open('Images/Dec23Trend.jpg'))
+st.text(" \n")
+st.write("""  ### Static Charts with Lack of Attention to Details ##   """)
+st.text(" \n")
 
-st.header("""  Contracts on NEAR are simply programs stored on a blockchain that run when predetermined conditions are met. The Daily Number of New Contracts is a valuable metric for understanding the health and growth of an ecosystem.
+st.write("""  Almost in all Weekly transparency reports, there are static charts with no Y and X axis titles; it is better to use the date axis with the name of the week when weekly charts are presented. There are a few charts that the date on them are not suited for the report, like (the November 25, 2022-Daily Number of New Accounts chart) as you can see below the charts only cover the last days of October and the first couple of days of November while the report and the context were about 25th of November. 
+   """)
 
-##### The more active contracts there are, the more projects are actively engaging with the NEAR protocol. The chart below shows a cyclical rhythm to new contracts, with rises and falls. Over the last seven days, the number of new contracts reached a daily high of 54 on December 4, and a weekly low of 27 on December 6. This range is broader compared to the week before, with last week’s highest number of 44 on November 30, to a low of 12 new contracts on November 27.   """)
+st.image(Image.open('Images/25_November_Date.png'))
 
-st.image(Image.open('Images/Dec23Trend.jpg'))
+st.write(""" Additionally, the transaction charts pertaining to December 16 are missing.
+   """)
+
+st.image(Image.open('Images/16December_Missing_Chart.jpg'))
+
+st.write("""  Repeating the same sentences in a couple of reports is not bad at all (we actually did it in our report), but when using Q3 information in the last week of Q4 with wrong info, I guess it is not appropriate.
+   """)
+
+st.image(Image.open('Images/2December_Same_Sentence.jpg'))
+
+st.image(Image.open('Images/December9_same_sentence.jpg'))
+
+
+st.write("""  We are not trying to be pedants who are seeking small details, just as users who try to find a weekly pattern in a couple of consecutive reports. We just notice these small things at first glance. And we believe these are not bad to share with you.
+
+   """)
